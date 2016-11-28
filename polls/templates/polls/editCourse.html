@@ -1,0 +1,6 @@
+<form action="{% url 'polls:updateCourse' course.id %}" method="post">
+{% csrf_token %}
+    <input type="text" name="name" id="name" value="{{ course.name }}" /> <br></br>
+    <input type="text" name="description" id="description" value="{{ course.description }}" /> <br></br>
+<input type="submit" value="update course" />
+</form>

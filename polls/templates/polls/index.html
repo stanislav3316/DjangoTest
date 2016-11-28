@@ -1,0 +1,30 @@
+<H2>My courses</H2>
+{% if listOfCourses %}
+    <table>
+    {% for course in listOfCourses %}
+        <tr>
+            <td>
+                <a href="{% url 'polls:detail' course.id %}">{{ course.name }}</a>
+            </td>
+            <td style="padding-left:15px;">
+                <a style='color:red;' href="{% url 'polls:delete' course.id %}">[delete]</a>
+            </td>
+            <td style="padding-left:15px;">
+                <a style="color:green;" href="{% url 'polls:edit' course.id %}">[edit]</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No courses are available.</p>
+{% endif %}
+
+<hr></hr>
+<H4>add new Course</H4>
+
+<form action="{% url 'polls:add' %}" method="post">
+{% csrf_token %}
+    <input type="text" name="name" id="name" placeholder="name" /> <br></br>
+    <input type="text" name="description" id="description" placeholder="description" /> <br></br>
+<input type="submit" value="add course" />
+</form>
