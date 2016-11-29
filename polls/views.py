@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-from .models import Question, Course, Student
+from .models import Course, Student
 
 
 # Create your views here.
@@ -23,8 +23,8 @@ def details(request, course_id):
         currentCourse = Course.objects.get(pk=course_id)
         listOfStudents = currentCourse.student_set.all()
         mainTitle = "Student list of " + currentCourse.name
-    except Question.DoesNotExist:
-        raise Http404("Question Does not exist")
+    except Course.DoesNotExist:
+        raise Http404("Course Does not exist")
     return render(request, 'polls/details.html', {
         'studentsList': listOfStudents,
         'mainTitle': mainTitle,
@@ -32,12 +32,7 @@ def details(request, course_id):
         'desc': currentCourse.description})
 
 
-def results(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/result.html', {'question': question})
-
-
-def vote(request, course_id):
+def addStu(request, course_id):
     courseCurr = get_object_or_404(Course, pk=course_id)
     try:
         courseCurr.student_set.create(name=request.POST['name'],
