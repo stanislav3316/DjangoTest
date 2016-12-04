@@ -87,4 +87,3 @@ def updateStudent(request, student_id):
                                                  family=request.POST['family'],
                                                  learnSubj=course)
     return HttpResponseRedirect(reverse('polls:index'))
-
