@@ -40,10 +40,10 @@
                         {{ student.family }}
                     </td>
                     <td style="padding-left:15px;">
-                        <a style="color:red" href="{% url 'polls:deleteStudent' student.id myId %}">[delete]</a>
+                        <a style="color:red" href="{% url 'polls:deleteStudent' student.id myId %}">delete</a>
                     </td>
                     <td>
-                        <a style="color:green" href="{% url 'polls:editStu' student.id %}">[edit]</a>
+                        <a style="color:green" href="{% url 'polls:editStu' student.id %}">edit</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -62,9 +62,9 @@
           <div class="panel-body">
               <form action="{% url 'polls:vote' myId %}" method="post">
                   {% csrf_token %}
-                  <input type="text" class="form-control" id="nameStu" name="name" placeholder="name"><br>
+                  <input type="text" class="form-control" id="nameStu" name="name" placeholder="name" required><br>
                   <input type="text" class="form-control" id="familyStu"
-                         name="family" placeholder="family"><br>
+                         name="family" placeholder="family" required><br>
                   <input class="btn btn-default btn btn-success" type="submit" value="add student" />
               </form>
           </div>

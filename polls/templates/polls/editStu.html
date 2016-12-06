@@ -11,10 +11,10 @@
                 <form action="{% url 'polls:updateStu' student.id  %}" method="post">
                 {% csrf_token %}
                     <label>name</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ student.name }}"><br>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ student.name }}" required><br>
                     <label>second name</label>
                     <input type="text" class="form-control" id="family"
-                                 name="family" value="{{ student.family }}"><br>
+                                 name="family" value="{{ student.family }}" required><br>
 
                     <label>course</label><br>
                     <select name="course" class="form-control">

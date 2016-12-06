@@ -12,10 +12,10 @@
                 <form action="{% url 'polls:updateCourse' course.id %}" method="post">
                 {% csrf_token %}
                     <label>Course name</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ course.name }}"><br>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ course.name }}" required><br>
                     <label>Course description</label>
                     <input type="text" class="form-control" id="description"
-                                 name="description" value="{{ course.description }}"><br>
+                                 name="description" value="{{ course.description }}" required><br>
                     <input class="btn btn-default btn btn-warning" type="submit" value="save changes">
                 </form>
           </div>

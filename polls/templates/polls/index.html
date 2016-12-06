@@ -50,9 +50,9 @@
           <div class="panel-body">
               <form action="{% url 'polls:add' %}" method="post">
                   {% csrf_token %}
-                  <input type="text" class="form-control" id="name" name="name" placeholder="course name"><br>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="course name" required><br>
                   <input type="text" class="form-control" id="description"
-                         name="description" placeholder="course description"><br>
+                         name="description" placeholder="course description" required><br>
                   <input class="btn btn-default btn btn-success" type="submit" value="add course">
               </form>
           </div>
