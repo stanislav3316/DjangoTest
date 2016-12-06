@@ -40,7 +40,12 @@
                         {{ student.family }}
                     </td>
                     <td style="padding-left:15px;">
-                        <a style="color:red" href="{% url 'polls:deleteStudent' student.id myId %}">delete</a>
+                        <form action="{% url 'polls:deleteStudent' %}" style="height: 10px; margin-top: -6px;" method="post" >
+                            {% csrf_token %}
+                            <input type="hidden" name="course_id" value="{{ myId }}">
+                            <input type="hidden" name="student_id" value="{{ student.id }}">
+                            <button type="submit" class="btn btn-link" style="color:red;">delete</button>
+                        </form>
                     </td>
                     <td>
                         <a style="color:green" href="{% url 'polls:editStu' student.id %}">edit</a>
@@ -49,7 +54,6 @@
             {% endfor %}
             </tbody>
         </table>
-
 
     </div>
 </div>

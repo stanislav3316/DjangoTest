@@ -13,10 +13,9 @@ urlpatterns = [
     # ex: /polls/add/
     url(r'^add/$', views.add, name='add'),
     # ex: /polls/remove/5/
-    url(r'^remove/(?P<course_id>[0-9]+)$', views.delete, name='delete'),
+    url(r'^remove/$', views.delete, name='delete'),
     # ex: /polls/removeStudent/5/course/4/
-    url(r'^removeStudent/(?P<student_id>[0-9]+)/course/(?P<course_id>[0-9]+)/$',
-        views.deleteStudent, name='deleteStudent'),
+    url(r'^removeStudent/$', views.deleteStudent, name='deleteStudent'),
     # ex: /polls/edit/5/
     url(r'^edit/(?P<course_id>[0-9]+)$', views.editCourse, name='edit'),
     # ex: /polls/updateCourse/4/

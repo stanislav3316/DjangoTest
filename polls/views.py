@@ -53,14 +53,14 @@ def add(request):
     return HttpResponseRedirect(reverse('polls:index'))
 
 
-def delete(request, course_id):
-    Course.objects.filter(id=course_id).delete()
+def delete(request):
+    Course.objects.filter(id=request.POST["id"]).delete()
     return HttpResponseRedirect(reverse('polls:index'))
 
 
-def deleteStudent(request, student_id, course_id):
-    Student.objects.filter(id=student_id).delete()
-    return HttpResponseRedirect(reverse('polls:detail', args=(course_id,)))
+def deleteStudent(request):
+    Student.objects.filter(id=request.POST["student_id"]).delete()
+    return HttpResponseRedirect(reverse('polls:detail', args=(request.POST["course_id"],)))
 
 
 def editCourse(request, course_id):

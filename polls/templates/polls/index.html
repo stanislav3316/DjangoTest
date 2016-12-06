@@ -25,7 +25,11 @@
                         <a href="{% url 'polls:detail' course.id %}">{{ course.name }}</a>
                     </td>
                     <td>
-                        <a style='color:red;' href="{% url 'polls:delete' course.id %}">delete</a>
+                        <form action="{% url 'polls:delete' %}" style="height: 10px; margin-top: -6px;" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ course.id }}">
+                            <button type="submit" class="btn btn-link" style="color:red;">remove</button>
+                        </form>
                     </td>
                     <td>
                         <a style="color:green;" href="{% url 'polls:edit' course.id %}">edit</a>
